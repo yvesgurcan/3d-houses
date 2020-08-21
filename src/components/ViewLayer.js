@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export default styled.div`
-    background: white;
+    background: ${props => props.backgroundColor};
     position: absolute;
     top: 0;
     left: 0;

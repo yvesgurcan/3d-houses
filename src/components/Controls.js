@@ -13,7 +13,7 @@ export default () => {
     });
     return (
         <orbitControls
-            autoRotate
+            autoRotate={false}
             ref={controls}
             args={[camera, gl.domElement]}
             enableDamping

@@ -7,7 +7,7 @@ import MenuContent from '../components/MenuContent';
 export default () => {
     return (
         <MenuOverlay>
-            <MenuContent backgroundColor="rgb(245, 0, 0, 0.75)">
+            <MenuContent backgroundColor="rgb(0, 0, 205, 0.75)">
                 <div>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna

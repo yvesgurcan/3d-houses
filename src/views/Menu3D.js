@@ -4,7 +4,10 @@ import { Canvas } from 'react-three-fiber';
 import { Vector3 } from 'three';
 
 import Controls from '../components/Controls';
-import HouseAndGlobe from '../components/HouseAndGlobe';
+import Globe from '../components/Globe';
+import House1 from '../components/House1';
+import House2 from '../components/House2';
+import House3 from '../components/House3';
 
 const GlobalStyles = createGlobalStyle`
     body {
@@ -41,31 +44,14 @@ export default () => {
             <Canvas
                 shadowMap
                 camera={{
-                    position: new Vector3(-13, 0, 0)
+                    position: new Vector3(-10, 0, 0)
                 }}
             >
                 <ambientLight intensity={1} />
-                <HouseAndGlobe
-                    to="/menu1"
-                    houseMainColor="red"
-                    houseRoofColor="darkred"
-                    globeColor="rgb(0, 130, 0)"
-                    relativePosition={{ x: 1, y: -7 }}
-                />
-                <HouseAndGlobe
-                    to="/menu2"
-                    houseMainColor="yellow"
-                    houseRoofColor="darkkhaki"
-                    globeColor="rgb(0, 125, 0)"
-                    relativePosition={{ x: 3, y: 1 }}
-                />
-                <HouseAndGlobe
-                    to="/menu3"
-                    houseMainColor="blue"
-                    houseRoofColor="darkblue"
-                    globeColor="rgb(0, 135, 0)"
-                    relativePosition={{ x: -2, y: 8 }}
-                />
+                <House1 />
+                <House2 />
+                <House3 />
+                <Globe />
                 {activateControls && <Controls />}
             </Canvas>
         </>

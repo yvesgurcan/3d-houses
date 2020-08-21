@@ -6,6 +6,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import Menu3D from './views/Menu3D';
 import Menu1 from './views/Menu1';
 import Menu2 from './views/Menu2';
+import Menu3 from './views/Menu3';
 
 const rootElement = document.getElementById('root');
 const customHistory = createBrowserHistory();
@@ -22,7 +23,7 @@ ReactDOM.render(
         <Switch>
             <Route path="/menu1" component={Menu1} />
             <Route path="/menu2" component={Menu2} />
-            <Route path="/menu3" component={Menu1} />
+            <Route path="/menu3" component={Menu3} />
         </Switch>
     </HashRouter>,
     rootElement

@@ -1,12 +1,12 @@
 {
-    "name": "dwelling3d",
-    "description": "🚪 Also known as myhouse.wad",
+    "name": "3d-menu",
+    "description": "🌶️ The 3D menu of your dreams.",
     "version": "0.0.1",
     "license": "MIT",
     "author": "Yves Gurcan",
     "repository": {
         "type": "git",
-        "url": "https://github.com/yvesgurcan/dwelling3d"
+        "url": "https://github.com/yvesgurcan/3d-menu"
     },
     "main": "index.js",
     "scripts": {

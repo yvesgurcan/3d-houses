@@ -5,10 +5,7 @@ import { Canvas, useFrame, extend, useThree } from 'react-three-fiber';
 import { Vector3 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-import House from './components/House';
-import Lawn from './components/Lawn';
-import Ground from './components/Ground';
-import Sun from './components/Sun';
+import MenuItem from './components/MenuItem';
 
 extend({ OrbitControls });
 
@@ -16,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
     body {
         font-family: sans-serif;
         margin: 0;
-        background: rgb(175, 175, 255);
+        background: rgb(140, 140, 255);
     }
     
     html,
@@ -53,10 +50,21 @@ function App() {
                 }}
             >
                 <ambientLight intensity={1} />
-                <Sun />
-                <House />
-                <Lawn />
-                <Ground />
+                <MenuItem
+                    houseMainColor="red"
+                    houseRoofColor="darkred"
+                    relativePosition={{ x: 1, y: -7 }}
+                />
+                <MenuItem
+                    houseMainColor="yellow"
+                    houseRoofColor="darkkhaki"
+                    relativePosition={{ x: 3, y: 1 }}
+                />
+                <MenuItem
+                    houseMainColor="blue"
+                    houseRoofColor="darkblue"
+                    relativePosition={{ x: -2, y: 8 }}
+                />
                 <Controls />
             </Canvas>
         </Fragment>

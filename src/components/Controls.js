@@ -8,6 +8,7 @@ export default () => {
     const controls = useRef();
     const { camera, gl } = useThree();
     useFrame(() => {
+        // We need to update frames when the camera is rotating without user input
         controls.current.update();
     });
     return (

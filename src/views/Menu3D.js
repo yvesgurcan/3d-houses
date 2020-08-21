@@ -1,5 +1,5 @@
-import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import React, { useState } from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
 import { Canvas } from 'react-three-fiber';
 import { Vector3 } from 'three';
 
@@ -26,9 +26,18 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export default () => {
+    const [activateControls, setActivateControls] = useState(true);
     return (
         <>
             <GlobalStyles />
+            <Overlay>
+                <input
+                    type="checkbox"
+                    checked={activateControls}
+                    onClick={() => setActivateControls(!activateControls)}
+                />
+                Activate controls
+            </Overlay>
             <Canvas
                 shadowMap
                 camera={{
@@ -57,8 +66,13 @@ export default () => {
                     globeColor="rgb(0, 135, 0)"
                     relativePosition={{ x: -2, y: 8 }}
                 />
-                <Controls />
+                {activateControls && <Controls />}
             </Canvas>
         </>
     );
 };
+
+const Overlay = styled.div`
+    position: absolute;
+    z-index: 500;
+`;

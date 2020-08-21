@@ -7,9 +7,12 @@ extend({ OrbitControls });
 export default () => {
     const controls = useRef();
     const { camera, gl } = useThree();
-    useFrame(() => controls.current.update());
+    useFrame(() => {
+        controls.current.update();
+    });
     return (
         <orbitControls
+            autoRotate
             ref={controls}
             args={[camera, gl.domElement]}
             enableDamping

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { findDOMNode } from 'react-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Canvas } from 'react-three-fiber';
 import { Vector3 } from 'three';
@@ -41,6 +40,7 @@ export default () => {
     const elementReference = useRef();
     const delayRotationRef = useRef(delayRotation);
 
+    // Set up event listeners for clicks
     useEffect(() => {
         if (!elementReference.current) {
             return;
@@ -57,12 +57,14 @@ export default () => {
         };
     }, [elementReference]);
 
+    // Stop rotation for 3 seconds
     function delayAutoRotate() {
         const updatedDelayRotation = 3000;
         delayRotationRef.current = updatedDelayRotation;
         setDelayRotation(updatedDelayRotation);
     }
 
+    // Decrease timer to reset rotation by 1 second
     function decreaseAutoRotate(delayRotation) {
         const updatedDelayRotation = Math.max(
             0,
@@ -73,30 +75,39 @@ export default () => {
     }
 
     return (
-        <span ref={elementReference}>
-            <GlobalStyles />
+        <>
             <Overlay>
-                <input
-                    type="checkbox"
-                    checked={activateControls}
-                    onClick={() => setActivateControls(!activateControls)}
-                />
-                Activate controls
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={activateControls}
+                        onChange={() => {
+                            setDelayRotation(0);
+                            delayRotationRef.current = 0;
+                        }}
+                    />
+                    Enable controls
+                </label>
             </Overlay>
-            <Canvas
-                shadowMap
-                camera={{
-                    position: new Vector3(-10, 0, 0)
-                }}
-            >
-                <ambientLight intensity={1} />
-                <House1 />
-                <House2 />
-                <House3 />
-                <Globe />
-                {activateControls && <Controls delayRotation={delayRotation} />}
-            </Canvas>
-        </span>
+            <span ref={elementReference}>
+                <GlobalStyles />
+                <Canvas
+                    shadowMap
+                    camera={{
+                        position: new Vector3(-10, 0, 0)
+                    }}
+                >
+                    <ambientLight intensity={1} />
+                    <House1 setActivateControls={setActivateControls} />
+                    <House2 />
+                    <House3 />
+                    <Globe />
+                    {activateControls && (
+                        <Controls delayRotation={delayRotation} />
+                    )}
+                </Canvas>
+            </span>
+        </>
     );
 };
 

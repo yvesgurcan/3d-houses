@@ -72,8 +72,6 @@ export default () => {
         delayRotationRef.current = updatedDelayRotation;
     }
 
-    console.log(delayRotation);
-
     return (
         <span ref={elementReference}>
             <GlobalStyles />

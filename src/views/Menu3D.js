@@ -47,10 +47,19 @@ export default () => {
 
         elementReference.current.addEventListener('click', delayAutoRotate);
         setInterval(() => decreaseAutoRotate(delayRotation), 1000);
+        elementReference.current.addEventListener(
+            'touchstart',
+            delayAutoRotate
+        );
+        setInterval(() => decreaseAutoRotate(delayRotation), 1000);
 
         return () => {
             elementReference.current.removeEventListener(
                 'click',
+                delayAutoRotate
+            );
+            elementReference.current.removeEventListener(
+                'touchstart',
                 delayAutoRotate
             );
         };

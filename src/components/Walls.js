@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default ({ to = '/', x = 0, y = 0, color = 'moccasin', ...props }) => {
     return (
         <mesh
             onClick={() => window.appHistory.push(to)}
+            onPointerUp={() => window.appHistory.push(to)}
             position={[0, 0.5 + x, 0 + y]}
             {...props}
         >

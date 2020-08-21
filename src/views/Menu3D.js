@@ -35,7 +35,6 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export default () => {
-    const [activateControls, setActivateControls] = useState(true);
     const [delayRotation, setDelayRotation] = useState(0);
     const elementReference = useRef();
     const delayRotationRef = useRef(delayRotation);
@@ -76,19 +75,6 @@ export default () => {
 
     return (
         <>
-            <Overlay>
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={activateControls}
-                        onChange={() => {
-                            setDelayRotation(0);
-                            delayRotationRef.current = 0;
-                        }}
-                    />
-                    Enable controls
-                </label>
-            </Overlay>
             <span ref={elementReference}>
                 <GlobalStyles />
                 <Canvas
@@ -98,13 +84,11 @@ export default () => {
                     }}
                 >
                     <ambientLight intensity={1} />
-                    <House1 setActivateControls={setActivateControls} />
+                    <House1 />
                     <House2 />
                     <House3 />
                     <Globe />
-                    {activateControls && (
-                        <Controls delayRotation={delayRotation} />
-                    )}
+                    <Controls delayRotation={delayRotation} />
                 </Canvas>
             </span>
         </>

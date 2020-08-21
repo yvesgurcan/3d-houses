@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default ({
     to = '/',
@@ -10,6 +10,7 @@ export default ({
     return (
         <mesh
             onClick={() => window.appHistory.push(to)}
+            onPointerUp={() => window.appHistory.push(to)}
             position={[0, 1.25 + x, 0 + y]}
             {...props}
         >

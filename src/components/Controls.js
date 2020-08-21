@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useFrame, useThree, extend } from 'react-three-fiber';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
@@ -15,6 +15,7 @@ export default ({ delayRotation }) => {
         // We need to update frames when the camera is rotating without user input
         elementReference.current.update();
     });
+
     return (
         <orbitControls
             enabled={true}

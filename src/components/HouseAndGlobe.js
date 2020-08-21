@@ -1,5 +1,4 @@
 import React from 'react';
-
 import House from './House';
 import Globe from './Globe';
 

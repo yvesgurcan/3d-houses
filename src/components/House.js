@@ -1,13 +1,16 @@
 import React from 'react';
 
 export default ({
+    to = '/',
     houseMainColor = 'moccasin',
     houseRoofColor = 'rgb(200, 50, 50)',
     relativePosition: { x, y } = { x: 0, y: 0 }
 }) => {
+    console.log(window.appHistory);
     return (
         <>
             <mesh
+                onClick={() => window.appHistory.push(to)}
                 position={[0, 1.25 + x, 0 + y]}
                 rotation={[0, Math.PI * 0.25, 0]}
             >

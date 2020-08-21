@@ -4,16 +4,20 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 extend({ OrbitControls });
 
-export default () => {
+export default ({ delayRotation }) => {
     const controls = useRef();
     const { camera, gl } = useThree();
     useFrame(() => {
+        if (delayRotation) {
+            return;
+        }
+
         // We need to update frames when the camera is rotating without user input
         controls.current.update();
     });
     return (
         <orbitControls
-            autoRotate={false}
+            autoRotate
             ref={controls}
             args={[camera, gl.domElement]}
             enableDamping

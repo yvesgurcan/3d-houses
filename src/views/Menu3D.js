@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { findDOMNode } from 'react-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Canvas } from 'react-three-fiber';
 import { Vector3 } from 'three';
@@ -25,13 +26,56 @@ const GlobalStyles = createGlobalStyle`
 
     a {
         text-decoration: none;
+        color: white;
+        font-weight: bold;
+
+        :hover {
+            color: black;
+        }
     }
 `;
 
 export default () => {
     const [activateControls, setActivateControls] = useState(true);
+    const [delayRotation, setDelayRotation] = useState(0);
+    const elementReference = useRef();
+    const delayRotationRef = useRef(delayRotation);
+
+    useEffect(() => {
+        if (!elementReference.current) {
+            return;
+        }
+
+        elementReference.current.addEventListener('click', delayAutoRotate);
+        setInterval(() => decreaseAutoRotate(delayRotation), 1000);
+
+        return () => {
+            elementReference.current.removeEventListener(
+                'click',
+                delayAutoRotate
+            );
+        };
+    }, [elementReference]);
+
+    function delayAutoRotate() {
+        const updatedDelayRotation = 3000;
+        delayRotationRef.current = updatedDelayRotation;
+        setDelayRotation(updatedDelayRotation);
+    }
+
+    function decreaseAutoRotate(delayRotation) {
+        const updatedDelayRotation = Math.max(
+            0,
+            delayRotationRef.current - 1000
+        );
+        setDelayRotation(updatedDelayRotation);
+        delayRotationRef.current = updatedDelayRotation;
+    }
+
+    console.log(delayRotation);
+
     return (
-        <>
+        <span ref={elementReference}>
             <GlobalStyles />
             <Overlay>
                 <input
@@ -52,9 +96,9 @@ export default () => {
                 <House2 />
                 <House3 />
                 <Globe />
-                {activateControls && <Controls />}
+                {activateControls && <Controls delayRotation={delayRotation} />}
             </Canvas>
-        </>
+        </span>
     );
 };
 

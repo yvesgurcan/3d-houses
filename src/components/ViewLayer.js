@@ -10,4 +10,5 @@ export default styled.div`
     height: 100vh;
     box-sizing: border-box;
     z-index: ${props => props.zIndex};
+    color: white;
 `;

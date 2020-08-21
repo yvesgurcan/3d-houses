@@ -1,16 +1,15 @@
 import React from 'react';
 
 export default ({
-    to = '/',
+    onClick,
     houseMainColor = 'moccasin',
     houseRoofColor = 'rgb(200, 50, 50)',
     relativePosition: { x, y } = { x: 0, y: 0 }
 }) => {
-    console.log(window.appHistory);
     return (
         <>
             <mesh
-                onClick={() => window.appHistory.push(to)}
+                onClick={onClick}
                 position={[0, 1.25 + x, 0 + y]}
                 rotation={[0, Math.PI * 0.25, 0]}
             >
@@ -21,7 +20,7 @@ export default ({
                     roughness={0.3}
                 />
             </mesh>
-            <mesh position={[0, 0.5 + x, 0 + y]}>
+            <mesh onClick={onClick} position={[0, 0.5 + x, 0 + y]}>
                 <boxBufferGeometry attach="geometry" args={[2, 1, 2]} />
                 <meshStandardMaterial
                     attach="material"

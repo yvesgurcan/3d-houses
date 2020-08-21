@@ -40,18 +40,21 @@ export default () => {
                     to="/menu1"
                     houseMainColor="red"
                     houseRoofColor="darkred"
+                    globeColor="rgb(0, 130, 0)"
                     relativePosition={{ x: 1, y: -7 }}
                 />
                 <HouseAndGlobe
                     to="/menu2"
                     houseMainColor="yellow"
                     houseRoofColor="darkkhaki"
+                    globeColor="rgb(0, 125, 0)"
                     relativePosition={{ x: 3, y: 1 }}
                 />
                 <HouseAndGlobe
                     to="/menu3"
                     houseMainColor="blue"
                     houseRoofColor="darkblue"
+                    globeColor="rgb(0, 135, 0)"
                     relativePosition={{ x: -2, y: 8 }}
                 />
                 <Controls />

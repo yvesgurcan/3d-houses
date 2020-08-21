@@ -14,10 +14,6 @@ ReactDOM.render(
     <HashRouter history={customHistory}>
         <Route
             component={({ history }) => {
-                if (history.location.pathname === '/menu2') {
-                    return null;
-                }
-
                 // reconcile React Router history by making it available globally in the 3D menu
                 window.appHistory = history;
                 return <Menu3D />;

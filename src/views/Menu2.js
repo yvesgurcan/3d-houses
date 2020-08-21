@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import ViewLayer from '../components/ViewLayer';
+
 export default () => {
     return (
-        <>
+        <ViewLayer zIndex={600}>
             <div>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -15,6 +17,6 @@ export default () => {
             </div>
             <br />
             <Link to="/">Back</Link>
-        </>
+        </ViewLayer>
     );
 };

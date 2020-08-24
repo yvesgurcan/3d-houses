@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { Canvas } from 'react-three-fiber';
 import { Vector3 } from 'three';
 import styled from 'styled-components';
@@ -16,7 +16,11 @@ const Pedestal = Block;
 export default () => {
     return (
         <ViewLayer backgroundColor="rgb(140, 140, 255)" zIndex={600}>
-            <BackLink to="/">Back</BackLink>
+            <Route
+                exact
+                path="/inside"
+                render={() => <BackLink to="/">Back</BackLink>}
+            />
             <Canvas
                 shadowMap
                 camera={{
@@ -77,9 +81,9 @@ export default () => {
                     depth={120}
                     width={30}
                 />
-                <Pointer x={40} y={-10} z={5} />
-                <Pointer x={10} y={-10} z={-10} />
-                <Pointer x={-40} y={-10} z={-10} />
+                <Pointer to="/inside/pin1" x={10} y={-10} z={-10} />
+                <Pointer to="/inside/pin2" x={40} y={-10} z={5} />
+                <Pointer to="/inside/pin3" x={-40} y={-10} z={-10} />
                 <Pedestal
                     color="rgb(50, 50, 50)"
                     x={30}

@@ -1,38 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import { Canvas } from 'react-three-fiber';
 import { Vector3 } from 'three';
 
+import GlobalStyles from '../components/GlobalStyles';
 import Controls from '../components/Controls';
 import Globe from '../components/Globe';
 import House1 from '../components/House1';
 import House2 from '../components/House2';
 import House3 from '../components/House3';
-
-const GlobalStyles = createGlobalStyle`
-    body {
-        font-family: sans-serif;
-        margin: 0;
-        background: rgb(140, 140, 255);
-    }
-    
-    html,
-    body,
-    #root {
-        width: 100%;
-        height: 100%;
-    }
-
-    a {
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-
-        :hover {
-            color: black;
-        }
-    }
-`;
 
 export default () => {
     const [delayRotation, setDelayRotation] = useState(0);
@@ -83,24 +59,22 @@ export default () => {
     }
 
     return (
-        <>
-            <span ref={elementReference}>
-                <GlobalStyles />
-                <Canvas
-                    shadowMap
-                    camera={{
-                        position: new Vector3(-10, 0, 0)
-                    }}
-                >
-                    <ambientLight intensity={1} />
-                    <House1 />
-                    <House2 />
-                    <House3 />
-                    <Globe />
-                    <Controls delayRotation={delayRotation} />
-                </Canvas>
-            </span>
-        </>
+        <span ref={elementReference}>
+            <GlobalStyles />
+            <Canvas
+                shadowMap
+                camera={{
+                    position: new Vector3(-10, 0, 0)
+                }}
+            >
+                <ambientLight intensity={1} />
+                <House1 />
+                <House2 />
+                <House3 />
+                <Globe />
+                <Controls autoRotate={true} delayRotation={delayRotation} />
+            </Canvas>
+        </span>
     );
 };
 

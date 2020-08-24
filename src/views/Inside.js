@@ -138,7 +138,7 @@ export default () => {
                     width={5}
                     length={5}
                 />
-                <Controls />
+                <Controls enableZoom={false} />
             </Canvas>
         </ViewLayer>
     );

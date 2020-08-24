@@ -6,7 +6,8 @@ import styled from 'styled-components';
 
 import ViewLayer from '../components/ViewLayer';
 import Controls from '../components/Controls';
-import Block from '../components/InsideWall';
+import Block from '../components/Block';
+import Pointer from '../components/Pointer';
 
 // For readability
 const Wall = Block;
@@ -76,6 +77,9 @@ export default () => {
                     depth={120}
                     width={30}
                 />
+                <Pointer x={40} y={-10} z={5} />
+                <Pointer x={10} y={-10} z={-10} />
+                <Pointer x={-40} y={-10} z={-10} />
                 <Pedestal
                     color="rgb(50, 50, 50)"
                     x={30}

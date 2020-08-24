@@ -4,11 +4,11 @@ import Roof from './Roof';
 import Walls from './Walls';
 
 export default ({
-    to = '/menu3',
+    to = '/inside',
     mainColor = 'blue',
     roofColor = 'darkblue',
-    x = 0,
-    y = -3.5,
+    y = 0,
+    z = -3.5,
     mainRotation = [Math.PI * 0.5, Math.PI * 0.25, 0],
     roofRotation = [Math.PI * -0.5, 0, 0]
 }) => {
@@ -16,15 +16,15 @@ export default ({
         <>
             <Roof
                 to={to}
-                x={x - 0.75}
                 y={y - 0.75}
+                z={z - 0.75}
                 color={roofColor}
                 rotation={roofRotation}
             />
             <Walls
                 to={to}
-                x={x}
                 y={y}
+                z={z}
                 color={mainColor}
                 rotation={mainRotation}
             />

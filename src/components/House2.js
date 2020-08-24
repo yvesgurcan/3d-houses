@@ -7,8 +7,8 @@ export default ({
     to = '/menu2',
     mainColor = 'yellow',
     roofColor = 'darkkhaki',
-    x = 3,
-    y = 0,
+    y = 3,
+    z = 0,
     mainRotation = [0, Math.PI * 0.25, 0],
     roofRotation = [0, 0, 0]
 }) => {
@@ -17,14 +17,14 @@ export default ({
             <Roof
                 to={to}
                 color={roofColor}
-                x={x}
                 y={y}
+                z={z}
                 rotation={roofRotation}
             />
             <Walls
                 to={to}
-                x={x}
                 y={y}
+                z={z}
                 color={mainColor}
                 rotation={mainRotation}
             />

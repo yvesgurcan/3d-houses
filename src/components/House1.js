@@ -7,7 +7,7 @@ export default ({
     to = '/menu1',
     mainColor = 'rgb(220, 0, 60)',
     roofColor = 'rgb(140, 0, 30)',
-    y = 0,
+    y = -0.25,
     z = 3.5,
     mainRotation = [Math.PI * 0.5, Math.PI * 0.25, 0],
     roofRotation = [Math.PI * 0.5, Math.PI * 0.5, 0]

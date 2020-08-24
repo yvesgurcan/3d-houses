@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ color = 'rgb(0, 130, 0)', x = 0, y = 0 }) => {
+export default ({ color = 'rgb(0, 120, 0)', x = 0, y = 0 }) => {
     return (
         <mesh position={[0, 0 + x, 0 + y]} rotation={[0, 0, 0]} castShadow>
             <sphereGeometry attach="geometry" args={[3.5, 100, 100]} />

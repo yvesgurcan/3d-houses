@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 
 export default ({
     to = '/',
-    x = 0,
     y = 0,
+    z = 0,
     color = 'rgb(200, 50, 50)',
     ...props
 }) => {
@@ -11,7 +11,7 @@ export default ({
         <mesh
             onClick={() => window.appHistory.push(to)}
             onPointerUp={() => window.appHistory.push(to)}
-            position={[0, 1.25 + x, 0 + y]}
+            position={[0, 1.25 + y, 0 + z]}
             {...props}
         >
             <coneBufferGeometry attach="geometry" args={[1.6, 0.5, 4]} />

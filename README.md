@@ -35,9 +35,11 @@ This command will run your tests, create a production build at the root of your 
 ## Structure
 
     src
-    ├── index.tsx
+    ├── components
+    ├── views
+    ├── index.js
     ├── index.html
 
-## Source
+## Technical notes
 
-https://codesandbox.io/s/house-react-three-fiber-86tzx?file=/src/styles.css:0-224
+Note that views are layered. As the user browses the application, 3D scenes are merely obfuscated and still running in the background.

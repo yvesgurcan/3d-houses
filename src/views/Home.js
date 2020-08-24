@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
 import { Canvas } from 'react-three-fiber';
 import { Vector3 } from 'three';
 
@@ -67,7 +66,22 @@ export default () => {
                     position: new Vector3(-10, 0, 0)
                 }}
             >
-                <ambientLight intensity={1} />
+                <ambientLight intensity={0.9} />
+                <directionalLight
+                    color="rgb(200, 200, 100)"
+                    intensity={0.3}
+                    position={[-2, 9, 0]}
+                />
+                <directionalLight
+                    color="rgb(200, 200, 100)"
+                    intensity={0.2}
+                    position={[7, -3, -5]}
+                />
+                <directionalLight
+                    color="rgb(200, 200, 100)"
+                    intensity={0.1}
+                    position={[10, 6, 5]}
+                />
                 <House1 />
                 <House2 />
                 <House3 />
@@ -77,8 +91,3 @@ export default () => {
         </span>
     );
 };
-
-const Overlay = styled.div`
-    position: absolute;
-    z-index: 500;
-`;

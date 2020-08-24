@@ -7,7 +7,7 @@ export default ({
     to = '/inside',
     mainColor = 'blue',
     roofColor = 'darkblue',
-    y = 0,
+    y = -0.25,
     z = -3.5,
     mainRotation = [Math.PI * 0.5, Math.PI * 0.25, 0],
     roofRotation = [Math.PI * -0.5, 0, 0]

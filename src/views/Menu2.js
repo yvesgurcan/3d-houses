@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import ViewLayer from '../components/ViewLayer';
+import StandardViewLayer from '../components/ViewLayer';
 
 export default () => {
     return (
@@ -20,3 +21,7 @@ export default () => {
         </ViewLayer>
     );
 };
+
+const ViewLayer = styled(StandardViewLayer)`
+    padding: 2rem;
+`;

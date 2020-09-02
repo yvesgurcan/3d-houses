@@ -35,7 +35,7 @@ This command will run your tests, create a production build at the root of your 
 ## Structure
 
     src
-    ├── index.tsx
+    ├── index.js
     ├── index.html
 
 ## Source
